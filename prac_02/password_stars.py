@@ -12,10 +12,20 @@ MINIMUM_LENGTH = 8
 
 def main():
     password = input("Enter your password: ")
+    password = get_password(password)
+    print_password(password)
+
+
+def print_password(password):
+    print("*" * len(password))
+
+
+def get_password(password):
     while len(password) < MINIMUM_LENGTH:
         print("The password length is too short")
         password = input("Enter your password: ")
-    print("*" * len(password))
+    return password
+
 
 main()
 

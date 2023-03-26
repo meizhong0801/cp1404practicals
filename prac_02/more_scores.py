@@ -23,10 +23,13 @@ def main():
     while score_number <= 0:
         print("Your number of scores is invalid!")
         score_number = int(input("Please enter your number of scores:  "))
+    f = open("results.txt", "a")
     for i in range(score_number):
         random_score = random.randint(MIN_SCORE, MAX_SCORE)
         result = determine_score_category(random_score)
-        print(f"{random_score} is {result}")
+        f.write(f"{random_score} is {result}\n")
+        # print(f"{random_score} is {result}")
+    f.close()
 
 
 def determine_score_category(score):

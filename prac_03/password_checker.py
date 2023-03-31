@@ -5,7 +5,7 @@ Password checker "skeleton" code to help you get started
 
 MIN_LENGTH = 2
 MAX_LENGTH = 6
-SPECIAL_CHARS_REQUIRED = False
+SPECIAL_CHARS_REQUIRED = True
 SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
 
 
@@ -38,17 +38,14 @@ def is_valid_password(password):
     count_special = 0
     for char in password:
         # TODO: count each kind of character (use str methods like isdigit)
-        if char in password:
-            if char.islower():
-                count_lower += 1
-            elif char.isupper():
-                count_upper += 1
-            elif char.isdigit():
-                count_digit += 1
-            elif SPECIAL_CHARS_REQUIRED and char in SPECIAL_CHARACTERS:
-                count_special += 1
-
-        pass
+        if char.islower():
+            count_lower += 1
+        elif char.isupper():
+            count_upper += 1
+        elif char.isdigit():
+            count_digit += 1
+        elif char in SPECIAL_CHARACTERS:
+            count_special += 1
 
     # TODO: if any of the 'normal' counts are zero, return False
     if count_lower == 0 or count_upper == 0 or count_digit == 0:
@@ -64,3 +61,46 @@ def is_valid_password(password):
 
 
 main()
+
+
+# test
+# MIN_LENGTH = 2
+# MAX_LENGTH = 6
+# SPECIAL_CHARS_REQUIRED = False
+# SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
+# Your password must be between 2 and 6 characters, and contain:
+# 	1 or more uppercase characters
+# 	1 or more lowercase characters
+# 	1 or more numbers
+# > this?
+# Invalid password!
+# > whyNot?CanIhaveThis?
+# Invalid password!
+# > 12345678901234567890aBcv@
+# Invalid password!
+# > thisISmy123Pass!
+# Invalid password!
+# > 1thisISit!
+# Invalid password!
+# > 1thisI
+# Your 6-character password is valid: 1thisI
+
+
+# MIN_LENGTH = 2
+# MAX_LENGTH = 6
+# SPECIAL_CHARS_REQUIRED = True
+# SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
+# Please enter a valid password
+# Your password must be between 2 and 6 characters, and contain:
+# 	1 or more uppercase characters
+# 	1 or more lowercase characters
+# 	1 or more numbers
+# 	and 1 or more special characters:  !@#$%^&*()_-=+`~,./'[]<>?{}|\
+# > aB
+# Invalid password!
+# > HowCanIHave2Chars?
+# Invalid password!
+# > 1aB
+# Invalid password!
+# > 1aB@
+# Your 4-character password is valid: 1aB@

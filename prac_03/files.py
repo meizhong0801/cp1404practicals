@@ -27,28 +27,30 @@ out_file.close()
 # 2.(In the same file, but as if it were a separate program) Write code that opens "name.txt" and reads the name
 # (as above) then prints,"Your name is Bob" (or whatever the name is in the file).
 
-f = open("name.txt", "r")
-name = f.read()
+file = open("name.txt", "r")
+name = file.read()
 print(f"Your name is {name}")
-f.close()
+file.close()
 
 
 # 3.Create a text file called numbers.txt and save it in your prac directory. Put the following three numbers on
 # separate lines in the file and save it:
 
-f = open("numbers.txt", "r")
-numbers = f.readlines()
-a = int(numbers[0])
-b = int(numbers[1])
-print(a + b)
+file = open("numbers.txt", "r")
+numbers = file.readlines()
+number_1 = int(numbers[0])
+number_2 = int(numbers[1])
+print(number_1 + number_2)
+file.close()
 
 
 # 4.Now write a fourth block of code that prints the total for all lines in numbers.txt or a file
 # with any number of numbers.
 
 sum = 0
-f = open("numbers.txt", "r")
-for line in f:
+file = open("numbers.txt", "r")
+for line in file:
     number = int(line)
     sum += number
 print(sum)
+file.close()

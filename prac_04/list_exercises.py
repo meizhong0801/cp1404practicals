@@ -15,6 +15,9 @@
 
 def main():
     numbers = []
+    usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface',
+                 'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer',
+                 'bob']
 
     for i in range(5):
         number = int(input("Numbers: "))
@@ -26,6 +29,11 @@ def main():
     print("The largest number is", max(numbers))
     print("The average of the number is", sum(numbers) / len(numbers))
 
+    username = input("Please enter your username: ")
+    if username in usernames:
+        print("Access granted")
+    else:
+        print("Access denied")
 
 main()
 
@@ -41,3 +49,8 @@ main()
 # The smallest number is 1
 # The largest number is 20
 # The average of the number is 6.2
+# Please enter your username: jimbo
+# Access granted
+
+# Please enter your username: mia
+# Access denied

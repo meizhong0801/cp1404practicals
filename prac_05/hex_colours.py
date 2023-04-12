@@ -22,13 +22,15 @@ COLOR_TO_CODE = {
     "cream": "#fffdd0",
 }
 
+
 def main():
     color_name = input("Enter color name (blank to quit): ").lower()
-    while color_name !="":
+    while color_name != "":
         if color_name in COLOR_TO_CODE:
-            print(color_name.capitalize(),"is",COLOR_TO_CODE[color_name])
+            print(f"{color_name.capitalize()} is {COLOR_TO_CODE[color_name]}")
         else:
             print("Invalid color name")
         color_name = input("Enter color name (blank to quit): ").lower()
-main()
 
+
+main()

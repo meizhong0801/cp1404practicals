@@ -8,18 +8,33 @@ File needs reformatting
 CODE_TO_NAME = {
     "QLD": "Queensland",
     "NSW": "New South Wales",
-    "NT" : "Northern Territory",
-    "WA" : "Western Australia",
+    "NT": "Northern Territory",
+    "WA": "Western Australia",
     "ACT": "Australian Capital Territory",
     "VIC": "Victoria",
     "TAS": "Tasmania"
 }
 print(CODE_TO_NAME)
 
-state_code = input("Enter short state: ")
+state_code = input("Enter short state: ").upper()
 while state_code != "":
     if state_code in CODE_TO_NAME:
         print(state_code, "is", CODE_TO_NAME[state_code])
     else:
         print("Invalid short state")
-    state_code = input("Enter short state: ")
+    state_code = input("Enter short state: ").upper()
+
+for key in CODE_TO_NAME:
+    print(f"{key:<3} is {CODE_TO_NAME[key]}")
+
+
+# test
+# Enter short state:
+# QLD is Queensland
+# NSW is New South Wales
+# NT  is Northern Territory
+# WA  is Western Australia
+# ACT is Australian Capital Territory
+# VIC is Victoria
+# TAS is Tasmania
+

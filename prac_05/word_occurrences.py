@@ -22,25 +22,41 @@ def main():
     text = input("Text: ").lower()
     words = text.split()
 
-    word_count = {}
-    for word in words:
-        if word in word_count:
-            word_count[word] += 1
+    # count the number of each word
+    word_summary = {}
+    for item in words:
+        if item in word_summary:
+            word_summary[item] += 1
         else:
-            word_count[word] = 1
+            word_summary[item] = 1
 
-    sorted_words = sorted(word_count.keys())
-    longest_word_length = max(len(word) for word in sorted_words)
+    # look for maximum word length
+    max_length = 0
+    for item in words:
+        if len(item) > max_length:
+            max_length = len(item)
 
-    for word in sorted_words:
-        print(f"{word:{longest_word_length}}: {word_count[word]}")
+    # display word and its count ordered alphabetically
+    ordered_words = sorted(word_summary.keys())
+    for item in ordered_words:
+        print(f"{item:{max_length}}: {word_summary[item]}")
 
 
 main()
 
 
-
-
+# test
+# Text: this is a collection of words of nice words this is a fun thing it is
+# a         : 2
+# collection: 1
+# fun       : 1
+# is        : 3
+# it        : 1
+# nice      : 1
+# of        : 2
+# thing     : 1
+# this      : 2
+# words     : 2
 
 
 

@@ -17,27 +17,37 @@ Abort.
 
 
 def main():
-    emails_to_name = {}
+    emails_and_names = {}
 
-    email =input("Email: ")
-    while email:
-        name = get_name_from_email(email)
-        correct_name = input(f"Is your name {name}? (Y/n)").lower()
-        if correct_name == "n" or correct_name == "no":
+    email = input("Email: ")
+    while email != "":
+        name_in_email = " ".join(email.split("@")[0].split("."))
+        is_correct = input(f"Is your name {name_in_email}? (Y/n)").lower()
+        if is_correct == "n" or is_correct == "no":
             name = input("Name: ")
-
-        emails_to_name = name
+        else:
+            name = name_in_email
+        emails_and_names[name] = email
         email = input("Email: ")
 
-    for email, name in emails_to_name.items():
-        print(f"{name}({email})")
-
-
-def get_name_from_email(email):
-    parts = email.split("@")[0].split(".")
-    name = "".join(parts).title()
-    return name
+    print()
+    for key in emails_and_names:
+        print(f"{key.title()} ({emails_and_names[key]})")
 
 
 main()
 
+# test
+
+# Email: lindsay.ward@jcu.edu.au
+# Is your name lindsay ward? (Y/n)y
+# Email: abe@gmail.com
+# Is your name abe? (Y/n)y
+# Email: jimbo546@hotmail.com
+# Is your name jimbo546? (Y/n)no
+# Name: Jim Boh
+# Email:
+#
+# Lindsay Ward (lindsay.ward@jcu.edu.au)
+# Abe (abe@gmail.com)
+# Jim Boh (jimbo546@hotmail.com)

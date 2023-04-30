@@ -21,12 +21,8 @@ print("\nThese are my guitars: ")
 
 for i, guitar in enumerate(guitars, 1):
     vintage_string = "(vintage)" if guitar.is_vintage() else ""
-    txt = f"Guitar {i}: " + "{:>" + str(name_length + 1) + "} ({}), worth $ {:>" + str(cost_length) + ",.2f} " + vintage_string
+    txt = f"Guitar {i}: " + "{:>" + str(name_length + 1) + "} ({}), worth $ {:>" + str(cost_length + 1) + ",.2f} " + vintage_string
     print(txt.format(guitar.name, guitar.year, guitar.cost))
-
-
-
-# Get guitar information from user.
 
 
 

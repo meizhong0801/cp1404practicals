@@ -1,0 +1,30 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: input_number
+            size_hint_x: 2
+            text: '34'
+            font_size: 48
+            on_text: app.handle_calculate(input_number.text)
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: 'Up'
+                # the following line specifies the function in the app class to call when the up button is pressed
+                on_press: app.handle_up()
+            Button:
+                text: 'Down'
+                # the following line specifies the function in the app class to call when the down button is pressed
+                on_press: app.handle_down()
+    # Button:
+        # text: 'Convert m to km'
+        # the following line specifies the function in the app class to call when the convert button is pressed
+        # on_press: app.handle_calculate(input_number.text)
+
+    Label:
+        id: output_label
+        text: '54.717'
+        font_size: 48
+        color: (1, 1, 0, 1)
